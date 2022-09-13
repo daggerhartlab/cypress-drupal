@@ -1,0 +1,46 @@
+name: cypress
+recipe: drupal9
+config:
+  webroot: ./web
+  composer_version: '2'
+  php: '8.0'
+  via: apache
+  database: mysql
+  xdebug: "debug,develop"
+
+env_file:
+  - .lando.env
+
+services:
+  appserver:
+    overrides:
+      environment:
+        DRUSH_OPTIONS_URI: "https://cypress.lndo.site"
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+
+  mailhog:
+    type: mailhog:v1.0.0
+    portforward: true
+    hogfrom:
+      - appserver
+
+tooling:
+
+  drupal-install-standard:
+    service: appserver
+    cmd:
+      - |
+        drush site-install standard \
+        --account-mail="j@d.com" \
+        --account-name=admin \
+        --account-pass=pass \
+        --site-mail="j@d.com" \
+        --site-name="Cypress Testing" \
+        --yes
+      - drush theme:enable gin
+      - drush -y config-set system.theme admin gin
+      - drush -y en gin_toolbar gin_login module_filter
+      - drush status theme
