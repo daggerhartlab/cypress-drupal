@@ -27,6 +27,13 @@ services:
     hogfrom:
       - appserver
 
+proxy:
+  pma:
+    - cypress-db.lndo.site
+
+  mailhog:
+    - cypress-mail.lndo.site
+
 tooling:
 
   drupal-install-standard:
