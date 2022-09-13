@@ -42,5 +42,5 @@ tooling:
         --yes
       - drush theme:enable gin
       - drush -y config-set system.theme admin gin
-      - drush -y en gin_toolbar gin_login module_filter
+      - drush -y en gin_toolbar gin_login module_filter devel devel_generate
       - drush status theme

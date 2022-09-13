@@ -2,6 +2,7 @@
 
 $config['system.logging']['error_level'] = 'verbose';
 $config['config_split.config_split.dev']['status'] = TRUE;
+$config['devel.settings']['devel_dumper'] = 'var_dumper';
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
 
 // Comment these lines to disable a lot of Drupal's render caching.
