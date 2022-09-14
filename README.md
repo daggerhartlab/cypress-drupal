@@ -9,6 +9,9 @@ lando drupal-install-standard
 
 # Install cypress
 cd tests && npm ci
+
+# Run cypress
+npx cypress open
 ```
 
 * Username: admin
