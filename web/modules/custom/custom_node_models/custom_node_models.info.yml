@@ -1,0 +1,4 @@
+name: Custom Models
+type: module
+package: Development
+core_version_requirement: ^8.8 || ^9

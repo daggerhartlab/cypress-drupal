@@ -1,0 +1,7 @@
+custom_node_models.example:
+  path: '/examples'
+  defaults:
+    _title: 'Examples'
+    _controller: '\Drupal\custom_node_models\Controller\ExamplesController::build'
+  requirements:
+    _permission: 'access content'
